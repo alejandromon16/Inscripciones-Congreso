@@ -37,7 +37,6 @@
 	export let icons: IconPropType = undefined;
 
 	export let focus:boolean = false;
-	export let justNumber:boolean = false;
 
 	let leftIconsClientWidth: number;
 	let inputElement: HTMLInputElement;
@@ -46,13 +45,10 @@
 	const dispatch = createEventDispatcher();
 	
 	const handleInputFocus = () => {
-		isInputFocused = true;
     dispatch('focus');
 	};
 
 	const handleInputBlur = () => {
-		scrollTo({behavior: 'smooth'});
-    isInputFocused = false;
     dispatch('blur');
 	};
 
@@ -119,8 +115,8 @@
 			{name}
 			{value}
 			type={inputType}
-			pattern={justNumber ? '[0-9]*': ''}
-			input={justNumber ? 'numeric' : ''}
+			pattern={inputType == "number" ? '[0-9]' : ''}
+			inputmode={inputType == "number" ? 'numeric' : ''}
 			class={inputClasses}
 			readonly={isReadonly}
 			disabled={isDisabled}
@@ -199,7 +195,7 @@
 		width: 100%;
 		flex-direction: column;
 		justify-content: center;
-		border-bottom: 1px solid;
+		border-bottom: 1px solid var(--color-black);
 		padding: var(--space-3xs) 0;
 		line-height: 1em;
 		transition: border 0.15s linear;
@@ -293,10 +289,11 @@
 		}
 	}
 
-	// input:-webkit-autofill,
-	// input:-webkit-autofill:hover,
-	// input:-webkit-autofill:focus,
-	// input:-webkit-autofill:active {
-	// 	transition: 5000s ease-in-out 0s;
-	// }
+	input:-webkit-autofill,
+	input:-webkit-autofill:focus {
+		transition: background-color 600000s 0s, color 600000s 0s;
+	}
+	input[data-autocompleted] {
+		background-color: transparent !important;
+	}
 </style>

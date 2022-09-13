@@ -2,6 +2,8 @@
 	import { goto } from '$app/navigation';
 	import CardForm from '$lib/components/CardForm.svelte';
 	import Button from '$lib/components/global/Button.svelte';
+	import InputSelect from '$lib/components/inputs/InputSelect.svelte';
+	import RadioButton from '$lib/components/inputs/RadioButton.svelte';
 	import TextInput from '$lib/components/inputs/TextInput.svelte';
 	import { contactSchema, type ContactSchema } from '$lib/schemas/contact.schema';
 	import { validator } from '@felte/validator-zod';
@@ -27,33 +29,33 @@
 			<div class="title"><InscripcionTitle title="Formulario de Inscripcion"/></div>
 			<div class="inputs">
 				<TextInput
-					name="full_name"
-					placeholder="Full name"
-					size="full"
-					error={$errors.name}
-					value={$data.name}
+					name="Nombre"
+					placeholder="Nombre"
 				/>
 				<TextInput
-					name="email"
-					placeholder="Email"
-					size="full"
-					error={$errors.lastname}
-					value={$data.lastname}
+					name="Apellido"
+					placeholder="Apellido"
 				/>
 				<TextInput
-					name="nit"
-					placeholder="NIT / CLI"
-					size="full"
-					error={$errors.email}
-					value={$data.email}
+					name="Cedula ID"
+					placeholder="Cedula ID"
+					inputType="number"
 				/>
 				<TextInput
-					name="phone"
-					placeholder="Phone number"
-					size="full"
-					error={$errors.phone}
-					value={$data.phone}
+					name="Email (opcional)"
+					placeholder="Email (opcional)"
+					inputType="email"
 				/>
+				<TextInput
+					name="Numero de telefono"
+					placeholder="Numero de telefono"
+					inputType="number"
+				/>
+				<TextInput
+					name="Congregacion a la que asiste"
+					placeholder="Congregacion a la que asiste"
+				/>
+				<InputSelect />
 				<div class="button">
 					<Button />
 				</div>
@@ -72,11 +74,12 @@
 		.title {
 			display: flex;
 			justify-content: center;
-			padding: 20px 0px;
+			padding: 30px 0px;
 		}
 
 		.inputs {
-			display: grid;
+			display: flex;
+			flex-direction: column;
 			row-gap: 30px;
 			padding: 0px 35px;
 		}

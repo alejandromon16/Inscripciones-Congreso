@@ -17,6 +17,6 @@
     
     .form {
         padding-top: var(--space-md);
-        margin: 0px var(--space-md);
+        margin: 0px var(--space-xs);
     }
 </style>
