@@ -10,20 +10,12 @@
 	import { createForm } from 'felte';
 	import InscripcionTitle from './Inscripcion-title.svelte';
 
-	const MAX_PERCENTAGE = 0;
-
-	const { form, errors, data, isValid } = createForm<ContactSchema>({
-		onSubmit: () => {},
-		onError: () => {},
-		onSuccess: () => {
-			goto('/inscripciones/success');
-		},
-		extend: validator({ schema: contactSchema })
-	});
-
+	const isFormCorrect = () => {
+		goto('/inscripciones/success');
+	}
 </script>
 
-<form use:form>
+<div class="form">
 	<div class="container cards">
 		<CardForm>
 			<div class="title"><InscripcionTitle title="Formulario de Inscripcion"/></div>
@@ -31,6 +23,7 @@
 				<TextInput
 					name="Nombre"
 					placeholder="Nombre"
+					size="full"
 				/>
 				<TextInput
 					name="Apellido"
@@ -57,24 +50,25 @@
 				/>
 				<InputSelect />
 				<div class="button">
-					<Button />
+					<Button on:click={() => isFormCorrect()}/>
 				</div>
 			</div>
 		</CardForm>
 
 	</div>
-</form>
+</div>
 
 <style lang="scss">
-	form {
+	.form {
 		display: flex;
 		flex-direction: column;
 		width: 100%;
+		height: max-content;
 
 		.title {
 			display: flex;
 			justify-content: center;
-			padding: 30px 0px;
+			padding: 35px 0px;
 		}
 
 		.inputs {

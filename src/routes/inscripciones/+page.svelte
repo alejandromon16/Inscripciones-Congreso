@@ -5,7 +5,9 @@
 
 <Hero 
     heroImgSrc="background.png"
-    descrition="Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus eos, hic itaque mollitia ab optio iure sequi saepe amet facere laboriosam velit. Laboriosam exercitationem repellat quasi enim laudantium vitae illum!"
+    descrition="Venid a las aguas.
+    Es tiempo de entrar en la ola del Espíritu y vivir un poderoso Avivamiento en nuestra nación.
+    Ya te inscribiste? Regístrate aquí"
 />
 <div class="content">
     <div class="form">

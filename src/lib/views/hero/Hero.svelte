@@ -1,14 +1,14 @@
 <script lang="ts">
 	export let heroImgSrc: string;
-	export let descrition: string;
+	export let descrition: string = '';
 </script>
 
 <div class="hero">
-	<img class="hero__background" src={heroImgSrc} alt="hero" />
+	<img class="hero__background" src="/{heroImgSrc}" alt="hero" />
   <div class="overlay" />
 </div>
 <div class="hero-logo">
-	<img class="logo" src="logo.png" alt="">
+	<img class="logo" src="/logo.png" alt="">
 	<span>{descrition}</span>
 </div>
 
@@ -40,17 +40,13 @@
 
 	.hero-logo{
 		display: flex;
-		padding: 0px var(--space-3xl);
 		flex-direction: column;
 		justify-content: center;
 		margin: 30px 0px;
-
-		.logo{
-			margin-bottom: 40px;
-		}
 	}
 
 	span {
+		padding: 0px var(--space-3xl);
 		text-align: center;
 		color: var(--color-white)
 	}

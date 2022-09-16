@@ -2,7 +2,7 @@
     export let text: string = "Enviar"
 </script>
 
-<button>
+<button on:click>
     {text}
 </button>
 

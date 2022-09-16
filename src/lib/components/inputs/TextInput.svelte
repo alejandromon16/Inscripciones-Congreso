@@ -45,11 +45,13 @@
 	const dispatch = createEventDispatcher();
 	
 	const handleInputFocus = () => {
-    dispatch('focus');
+		isInputFocused = true;
+    	dispatch('focus');
 	};
 
 	const handleInputBlur = () => {
-    dispatch('blur');
+		isInputFocused = false;
+    	dispatch('blur');
 	};
 
 	/* Using input event to value insted of two way binding to avoid creating
