@@ -16,7 +16,7 @@
 <script lang="ts">
 	import Icon from '../global/Icon.svelte';
 
-	export let inputType: 'text' | 'number' | 'password' | 'search' | 'email' | 'date' = 'text';
+	export let inputType: 'text'| 'tel' | 'number' | 'password' | 'search' | 'email' | 'date' = 'text';
 	export let size: 'base' | 'full' = 'full';
 	export let name: string;
 	export let value: string = '';
@@ -114,11 +114,11 @@
 <div class="input-container size--{size}" style="--iconTextGap: {iconTextGap}px;" class:error>
 	<div class="input-wrap" class:focused={isInputFocused} style:border-color={borderColor}>
 		<input
-			{name}
+			name={name}
 			{value}
 			type={inputType}
-			pattern={inputType == "number" ? '[0-9]' : ''}
-			inputmode={inputType == "number" ? 'numeric' : ''}
+			pattern={inputType == "number" || inputType == "tel" ? '[0-9]' : ''}
+			inputmode={inputType == "number" || inputType == "tel" ? 'numeric' : ''}
 			class={inputClasses}
 			readonly={isReadonly}
 			disabled={isDisabled}

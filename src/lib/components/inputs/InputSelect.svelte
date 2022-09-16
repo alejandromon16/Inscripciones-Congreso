@@ -1,12 +1,15 @@
-<script>
+<script lang="ts">
+    export let value:string = undefined;
     let selected = false;
+    export let rol:string = undefined;
 </script>
 
-<select style="color: { selected ? 'white': 'var(--color-text-muted)'} ;" on:input={() => selected = true} name="select">
+<select name={rol} bind:value style="color: { selected ? 'white': 'var(--color-text-muted)'} ;" on:input={(e) => {selected = true;}}>
     <option class="some" disabled selected value>Rol en la Congregacion</option>
-    <option value="value1">Pastor</option>
-    <option value="value2">Lider</option>
-    <option value="value3">Miembro</option>
+    <option value="PASTOR PRINCIPAL">Pastor principal</option>
+    <option value="PASTOR ASOCIADO">Pastor asociado</option>
+    <option value="LIDER">Lider</option>
+    <option value="MIEMBRO">Miembro</option>
 </select>
 
 <style>

@@ -32,6 +32,8 @@
 	"type": "module",
 	"dependencies": {
 		"@felte/validator-zod": "^1.0.11",
+		"axios": "^0.27.2",
+		"class-validator": "^0.13.2",
 		"felte": "^1.2.3",
 		"zod": "^3.19.1"
 	}

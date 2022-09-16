@@ -8,7 +8,7 @@
   <div class="overlay" />
 </div>
 <div class="hero-logo">
-	<img class="logo" src="/logo.png" alt="">
+	<img width="800px" class="logo" src="/logo.png" alt="">
 	<span>{descrition}</span>
 </div>
 
@@ -43,6 +43,10 @@
 		flex-direction: column;
 		justify-content: center;
 		margin: 30px 0px;
+
+		.logo{
+			padding-right: 10px;
+		}
 	}
 
 	span {
@@ -50,4 +54,15 @@
 		text-align: center;
 		color: var(--color-white)
 	}
+
+	@media only screen and (min-width: 768px) {
+        .hero-logo {
+            margin: 0px var(--space-2xl);
+            padding: 0px var(--space-md);
+        }
+    }
+
+	@media only screen and (min-width: 992px) {
+  	}
+
 </style>

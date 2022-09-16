@@ -1,5 +1,5 @@
 <script lang="ts">
-    export let text: string = "Enviar"
+    export let text: string = "Enviar";
 </script>
 
 <button on:click>

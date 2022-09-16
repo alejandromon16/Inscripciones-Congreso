@@ -8,6 +8,9 @@
 	<slot />
 </div>
 <style lang="scss">
+	body{
+		font-family: 'Open sans';
+	}
 	.section {
 		padding-bottom: 200px;
 	}
