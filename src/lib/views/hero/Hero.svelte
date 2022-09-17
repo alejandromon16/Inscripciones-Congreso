@@ -8,7 +8,12 @@
   <div class="overlay" />
 </div>
 <div class="hero-logo">
-	<img width="800px" class="logo" src="/logo.png" alt="">
+	<div>
+		<img width="800px" class="logo" src="/logo.png" alt="">
+	</div>
+	<span class="date">7 Marzo 2023</span>
+	<span class="place">Fexpocruz-salon Guarayos</span>
+	<span class="country">Santa cruz, Bolivia</span>
 	<span>{descrition}</span>
 </div>
 
@@ -45,15 +50,32 @@
 		margin: 30px 0px;
 
 		.logo{
-			padding-right: 10px;
+			padding-right: 15px;
+		}
+
+		.date{
+			font-size: 21px;
+			color:#FED130;
+		}
+
+		.place{
+			color:#FED130;
+			font-size: 16px;
+		}
+		.country{
+			font-size: 14px;
+			font-weight: var(--fw-ligth);
+			margin-bottom: 20px;
 		}
 	}
+
 
 	span {
 		padding: 0px var(--space-3xl);
 		text-align: center;
 		color: var(--color-white)
 	}
+
 
 	@media only screen and (min-width: 768px) {
         .hero-logo {
@@ -63,6 +85,31 @@
     }
 
 	@media only screen and (min-width: 992px) {
+		.hero-logo {
+			padding: 0px var(--space-5xl);
+		}
+		img{
+			width: 100%;
+			margin-right: 10px;
+		}
+  	}
+
+	@media only screen and (min-width: 1200px) {
+		.hero-logo{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			margin: 5px 0px;
+		}
+		.logo{
+			width:700px;
+		}
+
+		span{
+			font-size: 20px;
+			font-weight: 300;
+			padding: 0 500px;
+		}
   	}
 
 </style>

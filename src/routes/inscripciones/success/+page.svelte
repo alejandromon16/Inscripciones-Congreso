@@ -1,10 +1,27 @@
 <script>
     import CardForm from "$lib/components/CardForm.svelte";
+	import Button from "$lib/components/global/Button.svelte";
     import Hero from "$lib/views/hero/Hero.svelte";
+	import MoreInfoSection from "$lib/views/success/MoreInfo-section.svelte";
+	import { onMount } from "svelte";
 	import { fade } from "svelte/transition";
     /** @type {import('./$types').PageData} */
 
     export let data;
+    let canshare = false;
+    onMount(() => {
+        if(navigator.canShare){
+            canshare = true;
+        }
+    })
+    const tryShare = () => {
+        if(navigator.canShare){
+            navigator.share({
+                text: 'Hey, no te puedes perder esta bendicion bro',
+                url: 'https://avivamientobolivia.com/inscripciones'
+            })
+        }
+    }
 </script>
 
 <Hero 
@@ -15,11 +32,22 @@
 <div in:fade={{duration:500, delay:400}} class="wrapper">
     <CardForm>
         <div class="content">
-            <img src="/bien.png" alt="">
-            <span>Gracias por inscribirte <span class="name">{data.fullName}</span>, proximante te enviaremos tu inscripcion.</span>
+            <div>
+                <img src="/bien.png" alt="">
+            </div>
+            <div class="greeting">
+                <span>Gracias por inscribirte <span class="name">{data.fullName}</span>, proximante te enviaremos tu inscripcion.</span>
+            </div>
+            {#if canshare}
+                <div class="">
+                    <Button on:click={() => tryShare()} text="invita a tus amigos" />
+                </div>
+            {/if}
         </div>
     </CardForm>
 </div>
+
+<MoreInfoSection />
 
 <style lang="scss">
     
@@ -45,5 +73,16 @@
 
     .name{
         text-transform: capitalize;
+    }
+
+    @media (min-width: 1200px){
+        .content{
+            font-size: 20px;
+            padding: 20px 100px;
+        }
+
+        .greeting{
+            display: flex;
+        }
     }
 </style>

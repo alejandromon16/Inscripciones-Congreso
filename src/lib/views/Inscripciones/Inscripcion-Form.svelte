@@ -18,6 +18,7 @@
 			console.log('validation failed. errors: ', errors);
 		} else {
 			goto(`/inscripciones/success/?name=${data.name}&lastname=${data.lastname}&id=${data.id}&email=${data.email}&phone=${data.phone}&church=${data.church}&rol=${data.rol}`)
+			// goto('/inscripciones/success');
 		}
 		});
 	}
@@ -89,8 +90,7 @@
 		}
 
 		.inputs {
-			display: flex;
-			flex-direction: column;
+			display: grid;
 			row-gap: 30px;
 			padding: 0px 35px;
 		}
@@ -102,9 +102,32 @@
 		padding: 20px 0px;
 	}
 
+
+
+
 	@media only screen and (min-width: 768px) {
         .inputs {
             margin: 0px var(--space-md);
         }
+
+		.title {
+
+		}
     }
+
+	@media (min-width: 992px) {
+		
+	}
+
+	@media (min-width: 1200px){
+		.inputs {
+			display: grid;
+			column-gap: 120px;
+			grid-template-columns: repeat(2, 1fr);
+		}
+		.form {
+			padding-bottom: 70px;
+			margin: 60px 0px;
+		}
+	}
 </style>

@@ -4,13 +4,14 @@
     import { fade } from 'svelte/transition';
 </script>
 
+
 <Hero 
     heroImgSrc="background.png"
     descrition="Venid a las aguas.
     Es tiempo de entrar en la ola del Espíritu y vivir un poderoso Avivamiento en nuestra nación.
     Ya te inscribiste? Regístrate aquí"
 />
-<div transition:fade={{duration:500}} class="content">
+<div class="content">
     <div class="form">
         <FormView/>
     </div>
@@ -29,4 +30,16 @@
             padding: 0px var(--space-md);
         }
     }
+    @media only screen and (min-width: 992px) {
+		.form {
+            margin: 0px 120px;
+            padding: 0px var(--space-xl);
+        }
+  	}
+
+    @media (min-width: 1200px){
+		.form{
+            margin: 0px 250px;
+        }
+	}
 </style>
