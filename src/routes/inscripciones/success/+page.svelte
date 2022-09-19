@@ -17,7 +17,7 @@
     const tryShare = () => {
         if(navigator.canShare){
             navigator.share({
-                text: 'Hey, no te puedes perder esta bendicion bro',
+                text: 'Hey, no te puedes perder esta bendicion! inscribete aqui',
                 url: 'https://avivamientobolivia.com/inscripciones'
             })
         }
@@ -25,7 +25,7 @@
 </script>
 
 <Hero 
-    heroImgSrc="background.png"
+    heroImgSrc="/images/background.png"
 />
 
 
@@ -33,10 +33,10 @@
     <CardForm>
         <div class="content">
             <div>
-                <img src="/bien.png" alt="">
+                <img src="/images/bien.png" alt="">
             </div>
             <div class="greeting">
-                <span>Gracias por inscribirte <span class="name">{data.fullName}</span>, proximante te enviaremos tu inscripcion.</span>
+                <span>Gracias por inscribirte <span class="name">{data.name}</span>, proximante te enviaremos tu inscripcion.</span>
             </div>
             {#if canshare}
                 <div class="">
@@ -73,6 +73,10 @@
 
     .name{
         text-transform: capitalize;
+    }
+
+    span{ 
+        color: white;
     }
 
     @media (min-width: 1200px){

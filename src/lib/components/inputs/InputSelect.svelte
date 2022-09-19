@@ -10,6 +10,8 @@
     <option value="PASTOR ASOCIADO">Pastor asociado</option>
     <option value="LIDER">Lider</option>
     <option value="MIEMBRO">Miembro</option>
+    <option value="EVANGELISTA">Evangelista</option>
+    <option value="MISIONERO">Misionero</option>
 </select>
 
 <style>

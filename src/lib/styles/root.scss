@@ -2,11 +2,12 @@
 	/* TYPOGRAPHY */
 	--text-xs: 8px;
 	--text-sm: 12px;
-	--text-base: 16px;
-	--text-button: 16px;
+	--text-base: 14px;
+	--text-button: 14px;
 	--text-md: 16px;
 	--text-lg: 24px;
 	--text-xl: 32px;
+	--font-opensans: 'Open Sans';
 
 	/* FONT WEIGHT */
 	--fw-light: 300;
@@ -22,7 +23,7 @@
 	--color-blue-dark: #16284c;
 	--color-blue-light: #e4e9f5;
 	--color-purple-dark: #474f74;
-	--color-red: #fa4c4c;
+	--color-red: #ff4848;
 	--color-green: #049409;
 	--color-orange: #ff7a00;
 
@@ -39,7 +40,7 @@
 	/* COLOR REFRENCES */
 	--color-primary: var(--color-yellow);
 	--color-secondary: var(--color-purple-dark);
-	--color-background: var(--color-shade-200);
+	--color-background: #04606f;
 	--color-text-muted: #bdbdbd;
 	--color-text-muted-s2: #808080;
 

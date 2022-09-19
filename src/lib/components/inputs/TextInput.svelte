@@ -298,4 +298,10 @@
 	input[data-autocompleted] {
 		background-color: transparent !important;
 	}
+
+	input[type='text'],
+	input[type='number'],
+	textarea {
+		font-size: 16px;
+	}
 </style>

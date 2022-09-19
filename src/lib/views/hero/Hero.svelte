@@ -4,17 +4,17 @@
 </script>
 
 <div class="hero">
-	<img class="hero__background" src="/{heroImgSrc}" alt="hero" />
+	<img class="hero__background" src="{heroImgSrc}" alt="hero" />
   <div class="overlay" />
 </div>
 <div class="hero-logo">
 	<div>
-		<img width="800px" class="logo" src="/logo.png" alt="">
+		<img width="800px" class="logo" src="/images/logo.png" alt="">
 	</div>
 	<span class="date">7 Marzo 2023</span>
 	<span class="place">Fexpocruz-salon Guarayos</span>
 	<span class="country">Santa cruz, Bolivia</span>
-	<span>{descrition}</span>
+	<span class="description">{descrition}</span>
 </div>
 
 <style lang="scss">
@@ -56,16 +56,21 @@
 		.date{
 			font-size: 21px;
 			color:#FED130;
+			font-weight: var(--fw-bold);
 		}
 
 		.place{
 			color:#FED130;
 			font-size: 16px;
+			font-weight: var(--fw-medium);
 		}
 		.country{
 			font-size: 14px;
-			font-weight: var(--fw-ligth);
+			font-weight: var(--fw-regular);
 			margin-bottom: 20px;
+		}
+		.description{
+			font-weight: var(--fw-ligth);
 		}
 	}
 
