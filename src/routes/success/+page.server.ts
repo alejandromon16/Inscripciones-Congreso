@@ -10,6 +10,6 @@ export async function load({ url }) {
   }
   
   return {
-    href: '/inscripciones',
+    href: '/',
   }
 }
