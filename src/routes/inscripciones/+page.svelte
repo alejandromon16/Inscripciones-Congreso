@@ -47,7 +47,7 @@
 
 <div>
 	<Hero 
-		heroImgSrc="/images/background.png" 
+		heroImgSrc="https://res.cloudinary.com/dvklesox1/image/upload/v1663599249/background_cselww.png" 
 		descrition="Venid a las aguas.Es tiempo de entrar en la ola del Espiritu y vivir un poderoso Avivamiento en nuestra nacion. Ya te inscribiste? Registrate aqui."
 	/>
 </div>
