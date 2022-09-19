@@ -18,7 +18,7 @@
         if(navigator.canShare){
             navigator.share({
                 text: 'Hey, no te puedes perder esta bendicion! inscribete aqui',
-                url: 'https://avivamientobolivia.com/inscripciones'
+                url: 'https://www.avivamientobolivia.com/inscripciones'
             })
         }
     }
