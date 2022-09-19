@@ -40,9 +40,14 @@
             </div>
             {#if canshare}
                 <div class="">
-                    <Button on:click={() => tryShare()} text="invita a tus amigos" />
+                    <Button fullWidth on:click={() => tryShare()}>
+                        Invita a tus amigos
+                    </Button>
                 </div>
             {/if}
+            <div class="advice">
+                *mira nuestro video abajo
+            </div>
         </div>
     </CardForm>
 </div>
@@ -73,6 +78,9 @@
 
     .name{
         text-transform: capitalize;
+    }
+    .advice{
+        color: var(--color-text-muted)
     }
 
     span{ 

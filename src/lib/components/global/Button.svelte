@@ -119,13 +119,6 @@
 	}
 
 	/* COLOR */
-	.color--yellow {
-		background-color: var(--color-yellow);
-
-		&:hover {
-			opacity: 0.9;
-		}
-	}
 	.color--blue {
 		background: linear-gradient(180deg, #474f74 0%, #16284c 100%);
 		color: var(--color-white);
