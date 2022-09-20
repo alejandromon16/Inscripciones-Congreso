@@ -46,7 +46,7 @@
                 </div>
             {/if}
             <div class="advice">
-                *mira nuestro video abajo
+                *desliza para ver nuestro video
             </div>
         </div>
     </CardForm>
