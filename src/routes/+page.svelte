@@ -17,22 +17,15 @@
 
 
 	const { form, errors, data, isValid } = createForm<ContactSchema>({
-		initialValues: {
-            name: $checkoutStore?.name,
-            lastname: $checkoutStore?.lastname,
-			email: $checkoutStore?.email,
-			id: $checkoutStore?.id,
-			phone: $checkoutStore?.phone,
-			church: $checkoutStore?.church,
-            rol: $checkoutStore?.rol,
-            deparment: $checkoutStore?.deparment,
-		},
 		onSubmit: async () => {
-			const res = await axios.get(`/api/register?name=${$data.name}&lastname=${$data.lastname}&id=${$data.id}&email=${$data.email}&phone=${$data.phone}&church=${$data.church}&rol=${$data.rol}&department=${$data.department}`);
-			console.log(res.data);
+			const urlParams = new URLSearchParams();
+			Object.entries($data).forEach(([key, value]) => urlParams.set(key, value));
+			const res = await axios.get(`/api/register?${urlParams.toString()}`);
+			// const response = await axios.get(`/api/email?email=${$data.email}`);
+			// console.log(response);
 			try{
 				if(res){
-					goto(`/inscripciones/success?name=${res.data}`);
+					goto(`/success?name=${res.data}`);
 				}
 			}catch(e){
 				console.log(e);
@@ -51,7 +44,7 @@
 		descrition="Venid a las aguas.Es tiempo de entrar en la ola del Espiritu y vivir un poderoso Avivamiento en nuestra nacion. Ya te inscribiste? Registrate aqui."
 	/>
 </div>
-<form use:form>
+<form use:form >
 	<div class="container cards">
 		<CheckoutFormCard title="Formulario de Inscripcion" subTitle="*la Inscripcion es COMPLETAMENTE GRATUITA." shadow="IMPORTANT">
 			<TextInput
