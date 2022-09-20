@@ -21,9 +21,11 @@
 			const urlParams = new URLSearchParams();
 			Object.entries($data).forEach(([key, value]) => urlParams.set(key, value));
 			const res = await axios.get(`/api/register?${urlParams.toString()}`);
+			// const response = await axios.get(`/api/email?email=${$data.email}`);
+			// console.log(response);
 			try{
 				if(res){
-					goto(`/inscripciones/success?name=${res.data}`);
+					goto(`/success?name=${res.data}`);
 				}
 			}catch(e){
 				console.log(e);
