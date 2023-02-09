@@ -16,13 +16,12 @@
 	import { fade } from 'svelte/transition';
 
 
-	const { form, errors, data, isValid } = createForm<ContactSchema>({
+	const { form, errors, data, isValid, isSubmitting } = createForm<ContactSchema>({
 		onSubmit: async () => {
+			console.log('hereee');
 			const urlParams = new URLSearchParams();
 			Object.entries($data).forEach(([key, value]) => urlParams.set(key, value));
 			const res = await axios.get(`/api/register?${urlParams.toString()}`);
-			// const response = await axios.get(`/api/email?email=${$data.email}`);
-			// console.log(response);
 			try{
 				if(res){
 					goto(`/success?name=${res.data}`);
@@ -46,7 +45,7 @@
 </div>
 <form use:form >
 	<div class="container cards">
-		<CheckoutFormCard title="Formulario de Inscripcion" subTitle="*la Inscripcion es COMPLETAMENTE GRATUITA." shadow="IMPORTANT">
+			<CheckoutFormCard title="Formulario de Inscripcion" subTitle="*la Inscripcion es COMPLETAMENTE GRATUITA." shadow="IMPORTANT">
 			<TextInput
 				name="name"
 				placeholder="Nombre"
@@ -89,19 +88,25 @@
 				error={$errors.church}
 				value={$data.church}
 			/>
-
 			<InputSelect bind:value={$data.rol}/>
 			<InputSelectCountry bind:value={$data.department}/>
+			<TextInput
+				name="country"
+				placeholder="Pais (Si no eres de Bolivia)"
+				size="full"
+				error={$errors.country}
+				value={$data.country}
+			/>
+
 		</CheckoutFormCard>
 
 	</div>
-	{#if $isValid}
-		<div in:fade={{duration:300}} class="button">
-			<Button color="white" fullWidth buttonType="submit" isDisabled={false}>
-				Enviar
-			</Button>
-		</div>
-	{/if}
+	<div class="button">
+		<Button color="white" fullWidth buttonType="submit" isDisabled={!$isValid} isSubmitting={$isSubmitting}>
+			Enviar
+		</Button>
+	</div>
+
 </form>
 
 <style lang="scss">
@@ -117,6 +122,7 @@
 			row-gap: var(--space-md);
 		}
 	}
+
 
 	header {
 		z-index: 10;
@@ -147,10 +153,13 @@
 		margin: 0 auto;
 	}
 	.button {
-		position: fixed;
-		bottom: 0;
-		right: 0;
-		left: 0;
-		padding: 30px 15px;
+		display: flex;
+		padding: 10px 20px;
+	}
+
+	@media (min-width: 1200px){
+		.button{
+			padding: 30px 20%;
+		}
 	}
 </style>

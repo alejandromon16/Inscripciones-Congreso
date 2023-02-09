@@ -4,8 +4,9 @@
     export let rol:string = undefined;
 </script>
 
+
 <select name={rol} bind:value style="color: { selected ? 'white': 'var(--color-text-muted)'} ;" on:input={(e) => {selected = true;}}>
-    <option class="some" disabled selected value>Selecciona un departamento</option>
+    <option class="some" disabled selected value>Selecciona un departamento (opcional)</option>
     <option value="BENI">Beni</option>
     <option value="CHUQUISACA">Chuquisaca</option>
     <option value="COCHABAMBA">Cochabamba</option>
@@ -16,6 +17,7 @@
     <option value="SANTA CRUZ">Santa Cruz</option>
     <option value="TARIJA">Tarija</option>
 </select>
+
 
 <style>
     select{

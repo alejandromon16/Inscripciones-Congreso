@@ -5,11 +5,12 @@ import * as path from 'path';
 
 
 const transporter = nodemailer.createTransport({
-  service: "Godaddy",  
+  host: 'email-smtp.sa-east-1.amazonaws.com',
+  port: 587,
   secure: false,
   auth: {
-      user: "congreso@avivamientobolivia.com",
-      pass: "Avivamiento1973"
+      user: "AKIAVZ2VV4BNO7WPTNWV",
+      pass: "BLVLw46am+NCACRVR/cOxUdbf2ZPYaJVcMdmmQ2XYrDg"
   }
 });
 

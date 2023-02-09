@@ -11,7 +11,8 @@ export const contactSchema = zod.object({
 	phone: zod.string().min(1, 'Ingrese su numero de telefono'),
 	church: zod.string().min(1, 'Ingrese el nombre de la congregacion'),
 	rol: zod.string().min(1, 'Ingrese el rol en la congregacion'),
-	department: zod.string().min(1, 'Ingrese el departamento'),
+	department: zod.string().min(1, 'Ingrese el departamento').optional().or(zod.literal('')),
+	country: zod.string().min(1,"Ingrese el pais.").optional().or(zod.literal('')),
 });
 
 export type ContactSchema = zod.infer<typeof contactSchema>;

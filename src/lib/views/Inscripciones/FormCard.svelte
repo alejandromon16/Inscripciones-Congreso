@@ -12,8 +12,9 @@
 		<h2>{title}</h2>
 		<h4>{subTitle}</h4>
 	</div>
-
-	<slot />
+	<div class="inputs">
+		<slot />
+	</div>
 </div>
 
 <style lang="scss">
@@ -25,6 +26,13 @@
 		border-radius: var(--br-md);
 		flex-direction: column;
 		gap: var(--space-md);
+
+		.inputs{
+			display: flex;
+			flex-direction: column;
+			padding: 20px 0px;
+			row-gap: 40px;
+		}
 
 		h2 {
 			color: var(--color-white);

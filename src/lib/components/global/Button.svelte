@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { Circle } from 'svelte-loading-spinners';
+
 	export let href: string = undefined;
 	export let wrapText: boolean = false;
 	export let radius: 'rounded' | 'base' = 'base';
@@ -10,9 +12,11 @@
 	export let buttonType: 'submit' | 'button' | 'reset' = 'button';
 	export let textColor: 'white' | 'black' = 'black';
 	export let isDisabled: boolean = false;
+	export let isSubmitting: boolean = false;
 	export let fullWidth: boolean = false;
 
 	const buttonStyles = `size--${size} radius--${radius} shadow--${shadow} style--${style} color--${color} weight--${fontWeight} text--${textColor}`;
+	console.log(isSubmitting)
 </script>
 
 <div
@@ -21,9 +25,19 @@
 	class:disabled={isDisabled}
 	class:fullWidth
 	on:click
+	on:click={() => isSubmitting=true}
 >
 	{#if !href}
-		<button disabled={isDisabled} type={buttonType}> <slot /> </button>
+			<button disabled={isDisabled} type={buttonType}>
+				{#if isSubmitting}
+					<div class="loading">
+						<Circle size="30"  color="#1b8492" unit="px" duration="1s" />
+					</div>
+				{:else}
+					<slot/>
+				{/if}
+			</button>
+
 	{:else}
 		<a {href}> <slot /> </a>
 	{/if}
@@ -60,6 +74,11 @@
 
 	.disabled {
 		opacity: 0.5;
+	}
+
+	.loading{
+		display: flex;
+		justify-content: center;
 	}
 
 	a {
