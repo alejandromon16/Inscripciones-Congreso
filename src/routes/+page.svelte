@@ -18,7 +18,6 @@
 
 	const { form, errors, data, isValid, isSubmitting } = createForm<ContactSchema>({
 		onSubmit: async () => {
-			console.log('hereee');
 			const urlParams = new URLSearchParams();
 			Object.entries($data).forEach(([key, value]) => urlParams.set(key, value));
 			const res = await axios.get(`/api/register?${urlParams.toString()}`);
